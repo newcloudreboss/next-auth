@@ -1,7 +1,7 @@
----
+
 id: options
 title: Options
----
+
 
 ## Environment Variables
 
@@ -15,7 +15,7 @@ NEXTAUTH_URL=https://example.com
 
 If your Next.js application uses a custom base path, specify the route to the API endpoint in full. More information about the usage of custom base path [here](/getting-started/client#custom-base-path).
 
-_e.g. `NEXTAUTH_URL=https://example.com/custom-route/api/auth`_
+e.g. `NEXTAUTH_URL=https://example.com/custom-route/api/auth`_
 
 :::tip
 When you're using a custom base path, you will need to pass the `basePath` page prop to the `<SessionProvider>`. More information [here](/getting-started/client#custom-base-path).
@@ -41,7 +41,7 @@ If provided, server-side calls will use this instead of `NEXTAUTH_URL`. Useful i
 NEXTAUTH_URL_INTERNAL=http://10.240.8.16
 ```
 
----
+
 
 ## Options
 
@@ -49,8 +49,8 @@ Options are passed to NextAuth.js when initializing it in an API route.
 
 ### providers
 
-- **Default value**: `[]`
-- **Required**: _Yes_
+ **Default value**: `[]`
+ **Required**: _Yes_
 
 #### Description
 
@@ -58,12 +58,12 @@ An array of authentication providers for signing in (e.g. Google, Facebook, Twit
 
 See the [providers documentation](/configuration/providers/oauth) for a list of supported providers and how to use them.
 
----
+
 
 ### secret
 
-- **Default value**: `string` (_SHA hash of the "options" object_) in development, no default in production.
-- **Required**: _Yes, in production!_
+ **Default value**: `string` (_SHA hash of the "options" object_) in development, no default in production.
+ **Required**: Yes, in production
 
 #### Description
 
@@ -79,20 +79,20 @@ Not providing any `secret` or `NEXTAUTH_SECRET` will throw [an error](/errors#no
 
 You can quickly create a good value on the command line via this `openssl` command.
 
-```bash
+bash
 $ openssl rand -base64 32
-```
+
 
 :::tip
 If you rely on the default secret generation in development, you might notice JWT decryption errors, since the secret changes whenever you change your configuration. Defining an explicit secret will make this problem go away. We will likely make this option mandatory, even in development, in the future.
 :::
 
----
+
 
 ### session
 
-- **Default value**: `object`
-- **Required**: _No_
+**Default value**: `object`
+**Required**: YES
 
 #### Description
 
@@ -100,7 +100,7 @@ The `session` object and all properties on it are optional.
 
 Default values for this option are shown below:
 
-```js
+js
 session: {
   // Choose how you want to save the user session.
   // The default is `"jwt"`, an encrypted JWT (JWE) stored in the session cookie.
